@@ -1,6 +1,8 @@
 target
 
 data/AnkiSample
+data/AnkiDataSample/*/deleted.txt
+data/AnkiDataSample/*/collection.log
 
 /.settings/
 /.classpath
