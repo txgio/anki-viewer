@@ -1,13 +1,13 @@
-package io.txg.ankiviewer01;
+package io.txg.ankiviewer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @EnableAutoConfiguration
-public class AnkiViewer01 {
+public class AnkiViewer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AnkiViewer01.class, args);
+		SpringApplication.run(AnkiViewer.class, args);
 	}
 
 }
