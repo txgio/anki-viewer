@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AnkiViewer.class)
-public class TagRepositoryIT {
+public class TagRepositoryTest {
 
 	@Autowired
 	private TagRepository tagRepository;
