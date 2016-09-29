@@ -13,7 +13,7 @@ public class JdbcConfiguration {
 	public DataSource dataSource() {
 		SingleConnectionDataSource ds = new SingleConnectionDataSource();
 		ds.setDriverClassName("org.sqlite.JDBC");
-		ds.setUrl("jdbc:sqlite:./data/collection.anki2");
+		ds.setUrl("jdbc:sqlite:./data/AnkiDataSample/Profile01/collection.anki2");
 		return ds;
 	}
 	

@@ -20,8 +20,8 @@ public class TagRepositoryIT {
 	public void testFindAll() {
 		List<Tag> tags = tagRepository.findAll();
 
-		Assert.assertEquals("2ks8", tags.stream().findFirst().get().getNome());
-		Assert.assertEquals("2ks7", tags.stream().reduce((first, second) -> second).get().getNome());
+		Assert.assertEquals("Tag01", tags.stream().findFirst().get().getNome());
+		Assert.assertEquals("Tag02", tags.stream().reduce((first, second) -> second).get().getNome());
 	}
 
 }
