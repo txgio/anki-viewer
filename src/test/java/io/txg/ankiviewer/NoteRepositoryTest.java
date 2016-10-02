@@ -18,6 +18,7 @@ public class NoteRepositoryTest {
 	public void testFindByOrderAdded() {
 		Note note = noteRepository.findByOrderAdded(1);
 		
+		Assert.assertEquals("Front", note.getCampo(1).getNome());
 		Assert.assertEquals("Front01", note.getCampo(1).getValor());
 	}
 	

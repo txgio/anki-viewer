@@ -3,6 +3,7 @@ target
 data/AnkiApp
 data/AnkiDataSample/*/deleted.txt
 data/AnkiDataSample/*/collection.log
+data/AnkiFullData
 
 /.settings/
 /.classpath
