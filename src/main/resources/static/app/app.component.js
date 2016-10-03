@@ -9,15 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var note_service_1 = require("./note.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(noteService) {
+        this.noteService = noteService;
+        this.ordem = 1;
     }
+    AppComponent.prototype.carregarNote = function () {
+        var _this = this;
+        this.noteService.getNote(this.ordem).then(function (note) { return _this.note = note; });
+    };
+    AppComponent.prototype.proximo = function () {
+        this.ordem++;
+        this.carregarNote();
+    };
+    AppComponent.prototype.anterior = function () {
+        this.ordem--;
+        this.carregarNote();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            template: "<h1>My First Angular App 2</h1>"
+            templateUrl: "app/app.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [note_service_1.NoteService])
     ], AppComponent);
     return AppComponent;
 }());

@@ -9,24 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var note_service_1 = require("./note.service");
 var http_1 = require("@angular/http");
-var forms_1 = require("@angular/forms");
-var AppModule = (function () {
-    function AppModule() {
+require("rxjs/add/operator/toPromise");
+var NoteService = (function () {
+    function NoteService(http) {
+        this.http = http;
+        this.headers = new http_1.Headers({ "Content-Type": "application/json" });
+        this.noteUrl = "api/note/";
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent],
-            providers: [note_service_1.NoteService],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    NoteService.prototype.getNote = function (ordem) {
+        return this.http.get(this.noteUrl + ordem)
+            .toPromise()
+            .then(function (response) { console.log(response.json()); return response.json(); });
+    };
+    NoteService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], NoteService);
+    return NoteService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.NoteService = NoteService;
+//# sourceMappingURL=note.service.js.map

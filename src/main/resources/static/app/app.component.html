@@ -1,0 +1,17 @@
+<h1>Anki Viewer</h1>
+<p>
+    <label>Ordem</label>
+    <input type="text" [(ngModel)]="ordem">
+    <button (click)="carregarNote()">OK</button>
+</p>
+<p>
+    <button (click)="anterior()">Anterior</button>
+    <button (click)="proximo()">Próximo</button>
+</p>
+<div *ngIf="note">
+    <div *ngFor="let campo of note.campos">
+        <div>{{campo.nome}}</div>
+        <div [innerHtml]="campo.valor">
+        </div>
+    </div>
+</div>
