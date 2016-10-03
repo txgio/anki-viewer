@@ -8,3 +8,8 @@ data/AnkiFullData
 /.settings/
 /.classpath
 /.project
+
+node_modules
+typings
+
+.idea
