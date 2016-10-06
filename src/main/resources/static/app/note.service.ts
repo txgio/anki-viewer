@@ -29,4 +29,12 @@ export class NoteService {
                 );
     }
 
+    findByText(text: string, pagina: number): Promise<Note[]> {
+        return this.http.get(this.noteUrl + "?text=" + text + "&page=" + pagina)
+            .toPromise()
+            .then(
+                response => {console.log(response.json()); return response.json() as Note[]}
+            )
+    }
+
 }

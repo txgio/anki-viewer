@@ -9,6 +9,9 @@ export class AppComponent {
 
     ordem: number = 1;
     note: Note;
+    filtro: string;
+    notes: Note[];
+    pagina: number = 1;
 
     constructor(private noteService: NoteService) { }
 
@@ -28,4 +31,23 @@ export class AppComponent {
         this.carregarNote();
     }
 
+    filtrar(): void {
+        this.noteService.findByText(this.filtro, this.pagina).then(
+            notes => this.notes = notes
+        )
+    }
+
+    paginaSeguinte(): void {
+        this.pagina++;
+        this.filtrar();
+    }
+
+    paginaAnterior(): void {
+        this.pagina--;
+        this.filtrar();
+    }
+
+    escolherNote(note: Note): void {
+        this.note = note;
+    }
 }

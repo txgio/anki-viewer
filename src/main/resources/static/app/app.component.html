@@ -1,12 +1,31 @@
 <h1>Anki Viewer</h1>
 <p>
-    <label>Ordem</label>
-    <input type="text" [(ngModel)]="ordem">
-    <button (click)="carregarNote()">OK</button>
+    <label>Filtro</label>
+    <input type="text" [(ngModel)]="filtro">
+    <button (click)="filtrar()">Filtrar</button>
+</p>
+<div *ngIf="notes">
+    <div *ngFor="let note of notes">
+        <span (click)="escolherNote(note)">{{note.id}}</span>
+        <span *ngFor="let campo of note.campos">
+            {{campo.nome}}:{{campo.valor}}
+        </span>
+    </div>
+</div>
+<p>
+    <label>Página</label>
+    <button type="text" (click)="paginaAnterior()">&lt;</button>
+    <input type="text" [(ngModel)]="pagina">
+    <button type="text" (click)="paginaSeguinte()">&gt;</button>
 </p>
 <p>
     <button (click)="anterior()">Anterior</button>
     <button (click)="proximo()">Próximo</button>
+</p>
+<p>
+    <label>Ordem</label>
+    <input type="text" [(ngModel)]="ordem">
+    <button (click)="carregarNote()">OK</button>
 </p>
 <div *ngIf="note">
     <div *ngFor="let campo of note.campos">
